@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lbpscreen"
+version = "0.1.0"
+description = "In silico screening of bacterial strains for live biotherapeutics using AGORA2 genome-scale metabolic models"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Francis John Raymundo" }]
+license = { text = "MIT" }
+dependencies = ["cobra>=0.29", "pandas>=1.5", "scipy>=1.9"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "jupyterlab"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore:builtin type Swig.*:DeprecationWarning",
+    "ignore:builtin type swigvarlink.*:DeprecationWarning",
+]
